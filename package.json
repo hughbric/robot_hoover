@@ -1,0 +1,21 @@
+{
+  "name": "robot_hoover",
+  "version": "1.0.0",
+  "description": "A program that navigates an imaginary robotic hoover.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jasmine",
+    "test-cover": "istanbul cover --include-all-sources spec/specs.js && istanbul check-coverage"
+  },
+  "author": "Michael Hughes",
+  "license": "ISC",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.4.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-node": "^3.0.0",
+    "jasmine-supertest": "^1.0.0",
+    "supertest": "^4.0.2"
+  }
+}
