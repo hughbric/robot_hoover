@@ -1,4 +1,4 @@
-require('../../app/loadInput');
+require('../../src/loadInput');
 const testInput = require('./testInput.txt');
 
 describe("Load textfiles", function() {
