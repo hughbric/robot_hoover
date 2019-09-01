@@ -1,7 +1,8 @@
 class Grid {
   constructor(input) {
     this.dimensions = input;
-    this.grid = [];
+    this.grid;
+    this.initialPosition;
   }
 
   setup() {
