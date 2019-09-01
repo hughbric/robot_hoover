@@ -1,5 +1,5 @@
-let appImport = require('../../src/app');
-let app = appImport.App;
+var appImport = require('../../src/app');
+var app = appImport.App;
 
 describe("App", function() {
   it("contains a grid object with dimensions", function() {

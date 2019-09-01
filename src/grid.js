@@ -13,9 +13,14 @@ class Grid {
     for(var i = 0; i < X; i++) {
       this.grid[i] = new Array(Y);
       for(var j = 0; j < Y; j++) {
-        this.grid[i][j] = 'X'
+        this.grid[i][j] = "X";
       }
     }
+    return this.grid;
+  }
+
+  setDirtPile(x, y) {
+    this.grid[x][y] = "O";
     return this.grid;
   }
 }

@@ -12,7 +12,14 @@ describe("Grid", function() {
     var gridDimensions = '4 2';
     var newGrid = new grid(gridDimensions);
     expect(newGrid.setup()).toEqual([['X','X'],['X','X'],['X','X'],['X','X']]);
-});
+  });
+  
+  it("sets up a dirt pile", function() {
+    var gridDimensions = '2 2';
+    var newGrid = new grid(gridDimensions);
+    newGrid.setup();
+    expect(newGrid.setDirtPile(0, 0)).toEqual([['O','X'],['X','X']]);
+  });
 });
 
 
