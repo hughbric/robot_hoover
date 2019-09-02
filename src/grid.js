@@ -1,24 +1,23 @@
 class Grid {
   constructor(input) {
-    this.dimensions = input;
+    this.dimensions = input.split(' ');
     this.grid;
-    this.initialPosition;
   }
 
   setup() {
-    var X = this.dimensions[0];
-    var Y = this.dimensions[2];
-    this.grid = new Array(X);
+    var x = Number(this.dimensions[0]);
+    var y = Number(this.dimensions[1]);
+    this.grid = new Array(x);
 
-    for(var i = 0; i < X; i++) {
-      this.grid[i] = new Array(Y);
-      for(var j = 0; j < Y; j++) {
+    for(var i = 0; i < x; i++) {
+      this.grid[i] = new Array(y);
+      for(var j = 0; j < y; j++) {
         this.grid[i][j] = "X";
       }
     }
     return this.grid;
   }
-
+  
   setDirtPile(x, y) {
     this.grid[x][y] = "O";
     return this.grid;

@@ -1,40 +1,48 @@
 const gridImport = require('./grid');
-let grid = gridImport.Grid;
+const hooverImport = require('./hoover');
+const grid = gridImport.Grid;
+const hoover = hooverImport.Hoover;
 
 class App {
   constructor(input) {
     this.input = input.split('\n');
     this.grid;
+    this.hoover;
   }
 
   run() {
     this._setupGrid();
-    this._initilisePosition();
+    this._setupHoover();
     this._setDirtPiles();
-    return this.grid;
+    this._hooverMovements();
+    return `${this.hoover.finalPosition}\n${this.hoover.dirtPilesHoovered}`;
   }
 
   _setupGrid() {
     var dimensions = this.input.shift();
     this.grid = new grid(dimensions);
     this.grid.setup();
-    return this.grid;
   }
 
-  _initilisePosition() {
+  _setupHoover() {
     var initialPosition = this.input.shift();
-    this.grid.initialPosition = initialPosition;
+    this.hoover = new hoover(initialPosition);
   }
 
   _setDirtPiles() {
     this.input.forEach(dirtPileCoordinates => {
-      var x = dirtPileCoordinates[0];
-      var y = dirtPileCoordinates[2];
+      var x = dirtPileCoordinates.split(' ')[0];
+      var y = dirtPileCoordinates.split(' ')[1];
 
       if(x >= 0) {
         this.grid.setDirtPile(x, y);
       }
     });    
+  }
+
+  _hooverMovements() {
+    var path = this.input.pop();
+    return this.hoover.clean(this.grid.grid, path);
   }
 }
 
